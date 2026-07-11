@@ -4,6 +4,8 @@ build/
 coverage/
 .vite/
 .cache/
+*.cache
+logs/
 *.log
 .env
 .env.*

@@ -4,7 +4,7 @@ import MainLayout from '../layouts/MainLayout';
 import ProtectedRoute from './ProtectedRoute';
 import Loader from '../components/common/Loader';
 
-const HomePage = lazy(() => import('../pages/HomePage'));
+const LandingPage = lazy(() => import('../pages/LandingPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const DashboardPage = lazy(() => import('../pages/DashboardPage'));
@@ -44,7 +44,7 @@ export default function AppRoutes() {
     <Suspense fallback={<LoadingFallback />}>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
 

@@ -3,6 +3,7 @@ const app = require('./app');
 const env = require('./config/env');
 const logger = require('./config/logger');
 const connectDB = require('./database/connectDB');
+const { ensureDemoUser } = require('./services/demoUserService');
 const metricsPersister = require('./services/ai/MetricsPersister');
 
 let server;
@@ -10,6 +11,7 @@ let server;
 async function startServer() {
   try {
     await connectDB();
+    await ensureDemoUser();
     metricsPersister.start();
     server = app.listen(env.port, () => {
       logger.info({ port: env.port }, 'SmartQuiz API started');

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import aiService from '../../services/aiService';
-import Loader from '../common/Loader';
+import Loader from '../../components/common/Loader';
 import { ServerIcon, CpuChipIcon, BoltIcon, CloudIcon, CloudArrowDownIcon } from '@heroicons/react/24/outline';
 
 export default function AIMonitoringDashboard() {

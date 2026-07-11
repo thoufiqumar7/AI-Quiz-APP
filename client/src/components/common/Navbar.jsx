@@ -1,7 +1,7 @@
-﻿import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { useQuiz } from '../../hooks/useQuiz';
-import { useThemeContext } from '../../context/ThemeContext';
+import { useTheme } from '../../context/ThemeContext';
 import Button from './Button';
 
 function navLinkClass({ isActive }) {
@@ -15,7 +15,8 @@ function navLinkClass({ isActive }) {
 export default function Navbar() {
   const { isAuthenticated, user, logout } = useAuth();
   const { resetQuiz, clearResult } = useQuiz();
-  const { theme, toggleTheme } = useThemeContext();
+  const { theme, setTheme } = useTheme();
+  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
   const navigate = useNavigate();
 
   async function handleLogout() {
@@ -42,6 +43,11 @@ export default function Navbar() {
               <NavLink to="/leaderboard" className={navLinkClass}>Leaderboard</NavLink>
               <NavLink to="/share" className={navLinkClass}>Share</NavLink>
               {user?.role === 'admin' ? <NavLink to="/admin" className={navLinkClass}>Admin</NavLink> : null}
+              {user?.email === 'demo@smartquiz.ai' && (
+                <span className="hidden items-center rounded-full bg-emerald-500/10 px-2 py-0.5 text-xs font-semibold text-emerald-500 ring-1 ring-inset ring-emerald-500/20 md:inline-flex">
+                  Demo Mode
+                </span>
+              )}
               <span className="hidden text-xs text-slate-500 md:inline">{user?.email}</span>
               <Button variant="secondary" onClick={handleLogout}>Logout</Button>
             </>

@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Button from '../components/common/Button';
 import Loader from '../components/common/Loader';
@@ -82,7 +82,7 @@ export default function QuizSetupPage() {
           <select
             value={categoryId}
             onChange={(event) => setCategoryId(event.target.value)}
-            className="w-full rounded-xl border border-slate-300 bg-transparent px-3 py-2 dark:border-slate-700"
+            className="w-full rounded-xl border border-slate-300 bg-white dark:bg-slate-900 dark:text-white px-3 py-2 dark:border-slate-700 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 dark:focus:ring-emerald-900"
           >
             {categories.map((category) => (
               <option key={category._id} value={category._id}>
@@ -98,7 +98,7 @@ export default function QuizSetupPage() {
           <select
             value={difficulty}
             onChange={(event) => setDifficulty(event.target.value)}
-            className="w-full rounded-xl border border-slate-300 bg-transparent px-3 py-2 capitalize dark:border-slate-700"
+            className="w-full rounded-xl border border-slate-300 bg-white dark:bg-slate-900 dark:text-white px-3 py-2 capitalize dark:border-slate-700 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 dark:focus:ring-emerald-900"
           >
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
@@ -117,7 +117,7 @@ export default function QuizSetupPage() {
               const next = Number(event.target.value) || 5;
               setCount(Math.min(20, Math.max(5, next)));
             }}
-            className="w-full rounded-xl border border-slate-300 bg-transparent px-3 py-2 dark:border-slate-700"
+            className="w-full rounded-xl border border-slate-300 bg-white dark:bg-slate-900 dark:text-white px-3 py-2 dark:border-slate-700 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 dark:focus:ring-emerald-900"
           />
         </div>
 
