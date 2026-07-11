@@ -1,4 +1,4 @@
-﻿const dotenv = require('dotenv');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -17,6 +17,14 @@ const env = {
     .split(',')
     .map((origin) => origin.trim())
     .filter(Boolean),
+  openRouterApiKey: process.env.OPENROUTER_API_KEY,
+  openRouterBaseUrl: process.env.OPENROUTER_BASE_URL || 'https://openrouter.ai/api/v1',
+  openRouterTimeout: Number(process.env.OPENROUTER_TIMEOUT || 30000),
+  geminiApiKey: process.env.GEMINI_API_KEY,
+  aiPrimaryProvider: process.env.AI_PRIMARY_PROVIDER || 'openrouter',
+  aiFallbackProvider: process.env.AI_FALLBACK_PROVIDER || 'gemini',
+  cacheTtl: Number(process.env.CACHE_TTL || 1800),
+  cacheProvider: process.env.CACHE_PROVIDER || 'memory',
 };
 
 if (!env.mongoUri) {

@@ -29,6 +29,7 @@ const QuestionManagement = lazy(() => import('../pages/admin/QuestionManagement'
 const CategoryManagement = lazy(() => import('../pages/admin/CategoryManagement'));
 const ChallengeManagement = lazy(() => import('../pages/admin/ChallengeManagement'));
 const AchievementManagement = lazy(() => import('../pages/admin/AchievementManagement'));
+const AIMonitoringDashboard = lazy(() => import('../pages/admin/AIMonitoringDashboard'));
 
 function ProtectedElement({ children, roles }) {
   return <ProtectedRoute roles={roles}>{children}</ProtectedRoute>;
@@ -70,6 +71,7 @@ export default function AppRoutes() {
             <Route path="categories" element={<CategoryManagement />} />
             <Route path="challenges" element={<ChallengeManagement />} />
             <Route path="achievements" element={<AchievementManagement />} />
+            <Route path="ai-monitoring" element={<AIMonitoringDashboard />} />
           </Route>
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />

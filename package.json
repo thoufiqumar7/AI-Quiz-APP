@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "smartquiz-ai",
   "private": true,
   "version": "1.0.0",
@@ -10,5 +10,9 @@
   },
   "devDependencies": {
     "concurrently": "^9.0.1"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "mongoose": "^9.7.4"
   }
 }

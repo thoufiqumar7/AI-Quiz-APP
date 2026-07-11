@@ -3,12 +3,14 @@ const app = require('./app');
 const env = require('./config/env');
 const logger = require('./config/logger');
 const connectDB = require('./database/connectDB');
+const metricsPersister = require('./services/ai/MetricsPersister');
 
 let server;
 
 async function startServer() {
   try {
     await connectDB();
+    metricsPersister.start();
     server = app.listen(env.port, () => {
       logger.info({ port: env.port }, 'SmartQuiz API started');
     });
@@ -21,6 +23,7 @@ async function startServer() {
 async function shutdown(signal) {
   logger.info({ signal }, 'Graceful shutdown started');
   if (server) {
+    metricsPersister.stop();
     await new Promise((resolve) => server.close(resolve));
   }
   await mongoose.connection.close(false);

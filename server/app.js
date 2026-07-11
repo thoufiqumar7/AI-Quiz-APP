@@ -21,6 +21,7 @@ const achievementRoutes = require('./routes/achievementRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 const shareRoutes = require('./routes/shareRoutes');
 const adminRoutes = require('./routes/adminRoutes');
+const aiRoutes = require('./routes/aiRoutes');
 const { sanitizeInput } = require('./middleware/sanitize');
 const { notFoundHandler, errorHandler } = require('./middleware/errorHandlers');
 
@@ -113,6 +114,7 @@ app.use('/api/achievements', achievementRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/share', shareRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/ai', aiRoutes);
 
 app.get('/api/health', (_req, res) => {
   res.json({

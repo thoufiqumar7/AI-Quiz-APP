@@ -7,6 +7,7 @@ const items = [
   ['/admin/categories', 'Categories'],
   ['/admin/challenges', 'Challenges'],
   ['/admin/achievements', 'Achievements'],
+  ['/admin/ai-monitoring', 'AI Monitoring'],
 ];
 
 export default function AdminSidebar() {
